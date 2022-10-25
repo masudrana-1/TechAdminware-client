@@ -1,9 +1,51 @@
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
+import Blogs from './components/Blogs/Blogs';
+import Course from './components/Course/Course';
+import Courses from './components/Courses/Courses';
+import FAQ from './components/FAQ/FAQ';
+import LogIn from './components/LogIn/LogIn';
+import Register from './components/Register/Register';
+import Main from './layout/Main';
 
 function App() {
+
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <Main></Main>,
+      children: [
+        {
+          path: '/courses',
+          element: <Courses></Courses>
+        },
+        {
+          path: '/course',
+          element: <Course></Course>
+        },
+        {
+          path: '/faq',
+          element: <FAQ></FAQ>
+        },
+        {
+          path: '/blogs',
+          element: <Blogs></Blogs>
+        },
+        {
+          path: '/login',
+          element: <LogIn></LogIn>
+        },
+        {
+          path: '/register',
+          element: <Register></Register>
+        }
+      ]
+    }
+  ])
+
   return (
     <div className="App">
-      <h1 className='text-9xl'>my side</h1>
+      <RouterProvider router={router}></RouterProvider>
     </div>
   );
 }
