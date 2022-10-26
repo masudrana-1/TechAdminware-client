@@ -1,15 +1,18 @@
 import { GoogleAuthProvider } from 'firebase/auth';
-import React from 'react';
+import React, { useState } from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../Context/AuthProvider';
 
 const Register = () => {
 
-    const { createUser, providerLogin } = useContext(AuthContext);
+    const [error, setError] = useState('');
 
-    const googleProvider = new GoogleAuthProvider();
+    // for terms 
+    const [accepted, setAccepted] = useState(false);
 
-    const handleRegister = (event) => {
+    const { createUser, providerLogin, updateUserProfile, verifyEmail } = useContext(AuthContext);
+
+    const handleRegister = event => {
         event.preventDefault();
 
         const form = event.target;
@@ -18,15 +21,29 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
 
-        // console.log(name, photoURL, email, password)
+        // console.log(name, photoURL, email, password);
 
         createUser(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                // console.log(user);
+                setError('');
+                form.reset();
+
+                handleUpdateUserProfile(name, photoURL);
+
+                handleEmailVerification();
+
+                // for toast 
+                // toast.success('Please verify your email before login!!!')
             })
-            .catch(error => console.error(error))
+            .catch(error => {
+                console.error(error);
+                setError(error.message);
+            })
     }
+
+    const googleProvider = new GoogleAuthProvider();
 
     const handleGoogleSignIn = () => {
         providerLogin(googleProvider)
@@ -35,6 +52,29 @@ const Register = () => {
                 console.log(user);
             })
             .catch(error => console.error('error', error))
+    }
+
+    // profile update 
+    const handleUpdateUserProfile = (name, photoURL) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoURL
+        }
+        updateUserProfile(profile)
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
+
+
+    const handleEmailVerification = () => {
+        verifyEmail()
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
+
+    // terms event handler 
+    const handleAccepted = event => {
+        setAccepted(event.target.checked);
     }
 
     return (
@@ -51,11 +91,14 @@ const Register = () => {
                 </div>
                 <div className='mt-4'>
                     <p className=''>Email</p>
-                    <input type="text" name='email' placeholder="Your email" className="input input-bordered input-success w-full max-w-xs" />
+                    <input type="text" name='email' placeholder="Your email" className="input input-bordered input-success w-full max-w-xs" required />
                 </div>
                 <div className='mt-3'>
                     <p>Password</p>
-                    <input type="password" name='password' placeholder="Password" className="input input-bordered input-success w-full max-w-xs" />
+                    <input type="password" name='password' placeholder="Password" className="input input-bordered input-success w-full max-w-xs" required />
+                </div>
+                <div className='mt-3'>
+                    {error}
                 </div>
                 <button className='btn mt-2'>Register</button>
                 <br />

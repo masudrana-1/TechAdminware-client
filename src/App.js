@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
 import Blogs from './components/Blogs/Blogs';
 import Course from './components/Course/Course';
+import CourseDetails from './components/CourseDetails/CourseDetails';
 import CourseLink from './components/CourseLink/CourseLink';
 import Courses from './components/Courses/Courses';
 import ErrorPage from './components/ErrorPage/ErrorPage';
@@ -21,7 +22,7 @@ function App() {
         {
           path: '/courses',
           loader: () => {
-            return fetch('http://localhost:5000/category')
+            return fetch('http://localhost:5000/course')
           },
           element: <Courses></Courses>
         },
@@ -32,6 +33,11 @@ function App() {
         {
           path: '/courselink',
           element: <CourseLink></CourseLink>
+        },
+        {
+          path: '/course/:id',
+          loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`),
+          element: <CourseDetails></CourseDetails>
         },
         {
           path: '/faq',

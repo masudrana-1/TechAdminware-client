@@ -46,10 +46,10 @@ const AuthProvider = ({ children }) => {
             // console.log('user inside state changed', currentUser);
 
             // for email verify
-            if (currentUser === null || currentUser.emailVerified) {
-                setUser(currentUser);
-            }
+            setUser(currentUser);
             setLoading(false);
+            // if (currentUser === null || currentUser.emailVerified) {
+            // }
         });
         return () => {
             unsubscribe();

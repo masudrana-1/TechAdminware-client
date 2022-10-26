@@ -2,15 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Course.css'
 
-const Course = ({ courses }) => {
+const Course = ({ course }) => {
 
-    const { img, title } = courses
+    const { _id, img, title } = course;
 
     return (
-        <div className='m-auto p-4 border-solid border-2 border-red-500'>
+        <div className='m-auto p-4 '>
             <img className='' src={img} alt="" />
             <h4>{title}</h4>
-            <Link className="mt-2 btn btn-block btn-outline btn-accent">Purchase the course</Link>
+            <Link to={`/course/${_id}`} className="mt-2 btn btn-block btn-outline btn-accent">Show details</Link>
         </div>
     );
 };

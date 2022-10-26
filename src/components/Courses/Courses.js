@@ -5,7 +5,7 @@ import CourseLink from '../CourseLink/CourseLink';
 
 const Courses = () => {
 
-    const coursesCategory = useLoaderData();
+    const courses = useLoaderData();
 
 
 
@@ -13,13 +13,13 @@ const Courses = () => {
         <div className='flex gap-5'>
             <div className=''>
                 {
-                    coursesCategory.map(category => <CourseLink key={category.category_id} category={category}></CourseLink>)
+                    courses.map(course => <CourseLink key={course.id} course={course}></CourseLink>)
                 }
             </div>
-            <div className='grid grid-cols-2 m-auto gap-8 border-solid border-2 border-sky-500 '>
+            <div className='grid grid-cols-2 m-auto gap-8'>
 
                 {
-                    coursesCategory.map(category => <Course key={category.category_id} courses={category}></Course>)
+                    courses.map(course => <Course key={course.id} course={course}></Course>)
                 }
 
             </div>

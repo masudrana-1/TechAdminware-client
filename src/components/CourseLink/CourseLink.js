@@ -1,16 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const CourseLink = ({ category }) => {
+const CourseLink = ({ course }) => {
 
-    console.log(category);
+    // console.log(category);
 
-    const { title, id } = category;
+    const { title, _id } = course;
 
 
     return (
         <div>
-            <Link to={`/course/${id}`} className="btn btn-outline btn-accent mb-2">{title}</Link>
+            <Link to={`/course/${_id}`} className="btn btn-outline btn-accent mb-6">{title}</Link>
         </div>
     );
 };
