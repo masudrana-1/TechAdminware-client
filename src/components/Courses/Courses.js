@@ -14,7 +14,7 @@ const Courses = () => {
         <div className='flex gap-5'>
             <div className=''>
                 {
-                    coursesCategory.map(courses => <CourseLink key={courses.id} courses={courses}></CourseLink>)
+                    coursesCategory.map(category => <CourseLink key={category.category_id} category={category}></CourseLink>)
                 }
             </div>
             <div className='grid grid-cols-2 m-auto gap-8 border-solid border-2 border-sky-500 '>

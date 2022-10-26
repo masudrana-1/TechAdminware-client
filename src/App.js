@@ -4,6 +4,7 @@ import Blogs from './components/Blogs/Blogs';
 import Course from './components/Course/Course';
 import CourseLink from './components/CourseLink/CourseLink';
 import Courses from './components/Courses/Courses';
+import ErrorPage from './components/ErrorPage/ErrorPage';
 import FAQ from './components/FAQ/FAQ';
 import LogIn from './components/LogIn/LogIn';
 import Register from './components/Register/Register';
@@ -14,6 +15,7 @@ function App() {
   const router = createBrowserRouter([
     {
       path: '/',
+      errorElement: <ErrorPage></ErrorPage>,
       element: <Main></Main>,
       children: [
         {
