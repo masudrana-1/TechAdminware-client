@@ -5,7 +5,13 @@ import { AuthContext } from '../Context/AuthProvider';
 
 const NavBar = () => {
 
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
 
     return (
         <div>
@@ -24,7 +30,6 @@ const NavBar = () => {
                         </ul>
                     </div>
                     <Link to='/' className="btn btn-ghost normal-case text-xl">TechAdminware</Link>
-                    <h1>{user}</h1>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
@@ -36,9 +41,27 @@ const NavBar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link className='btn mr-2' to='/login'>LogIn</Link>
+
+
+                    <>
+                        {
+                            user?.uid ?
+                                <>
+                                    <h1>{user?.email}</h1>
+                                    <button onClick={handleLogOut} className='btn mr-2'>LogOut</button>
+                                </>
+                                :
+                                <>
+                                    <Link to='/login' className='btn mr-2'>LogIn</Link>
+                                    <Link to='/register' className='btn mr-2'>Register</Link>
+                                </>
+                        }
+                    </>
+
+
+                    {/* <Link className='btn mr-2' to='/login'>LogIn</Link>
                     <Link className='btn mr-2' to='/register'>Register</Link>
-                    <Link className='btn mr-2' >LogOut</Link>
+                    <Link className='btn mr-2' >LogOut</Link> */}
                     <div>
                         <label className="swap swap-rotate">
 

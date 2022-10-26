@@ -3,10 +3,14 @@ import { Link } from 'react-router-dom';
 
 const CourseLink = ({ category }) => {
 
+    console.log(category);
+
+    const { title, id } = category;
+
 
     return (
         <div>
-            <Link to={`/course/${category.category_id}`} className="btn btn-outline btn-accent mb-2">{category.title}</Link>
+            <Link to={`/course/${id}`} className="btn btn-outline btn-accent mb-2">{title}</Link>
         </div>
     );
 };

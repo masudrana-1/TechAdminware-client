@@ -7,8 +7,7 @@ const Courses = () => {
 
     const coursesCategory = useLoaderData();
 
-    // const { id, title, img, details } = courses;
-    // console.log(courses);
+
 
     return (
         <div className='flex gap-5'>
@@ -20,7 +19,7 @@ const Courses = () => {
             <div className='grid grid-cols-2 m-auto gap-8 border-solid border-2 border-sky-500 '>
 
                 {
-                    coursesCategory.map(courses => <Course key={courses.id} courses={courses}></Course>)
+                    coursesCategory.map(category => <Course key={category.category_id} courses={category}></Course>)
                 }
 
             </div>
