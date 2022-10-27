@@ -17,7 +17,7 @@ const CheckOut = () => {
 
     return (
         <div>
-            <form onSubmit={handlePurchase} action="" className='w-2/4 m-auto p-10 rounded-2xl shadow-2xl'>
+            <form onSubmit={handlePurchase} action="" className='lg:w-2/4 lg:m-auto p-10 rounded-2xl lg:shadow-2xl'>
                 <h1>Please give your details to purchase the course</h1>
                 <div className="form-control mt-6">
                     <label className="input-group">

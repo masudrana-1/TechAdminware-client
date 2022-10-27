@@ -4,7 +4,7 @@ const Blogs = () => {
     return (
         <div>
             <div>
-                <div className="card w-1/2 m-auto bg-base-100 shadow-xl mb-4">
+                <div className="card lg:w-1/2 lg:m-auto mx-6 bg-base-100 shadow-xl mb-4">
                     <figure className="">
                         <img src="https://miro.medium.com/max/1400/1*TKYFiZnIhfHi_PAFcG0geg.jpeg" alt="Shoes" className="rounded-xl w-full" />
                     </figure>
@@ -29,7 +29,7 @@ const Blogs = () => {
                 </div>
             </div>
             <div>
-                <div className="card w-1/2 m-auto bg-base-100 shadow-xl mb-4">
+                <div className="card lg:w-1/2 lg:m-auto mx-6 bg-base-100 shadow-xl mb-4">
                     <figure className="">
                         <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--ytGTW9Vg--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://thepracticaldev.s3.amazonaws.com/i/cufhvx44o66bb32ll2l8.png" alt="Shoes" className="rounded-xl w-full" />
                     </figure>
@@ -56,7 +56,7 @@ const Blogs = () => {
                 </div>
             </div>
             <div>
-                <div className="card w-1/2 m-auto bg-base-100 shadow-xl mb-4">
+                <div className="card lg:w-1/2 lg:m-auto mx-6 bg-base-100 shadow-xl mb-4">
                     <figure className="">
                         <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--sbmJX9BV--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/d2kflp5t0kl302gfq567.jpg" alt="Shoes" className="rounded-xl w-full" />
                     </figure>
@@ -81,7 +81,7 @@ const Blogs = () => {
                 </div>
             </div>
             <div>
-                <div className="card w-1/2 m-auto bg-base-100 shadow-xl">
+                <div className="card lg:w-1/2 lg:m-auto mx-6 bg-base-100 shadow-xl">
                     <figure className="">
                         <img src="https://railsware.com/blog/wp-content/uploads/2018/09/2400%D1%851260-rw-blog-node-js.png" alt="Shoes" className="rounded-xl w-full" />
                     </figure>

@@ -23,9 +23,9 @@ const Profile = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit} className='flex justify-center gap-6 w-4/6 m-auto p-10 mt-10 rounded-2xl shadow-2xl'>
+        <form onSubmit={handleSubmit} className='flex flex-col lg:flex-row justify-center gap-6 lg:w-4/6 m-auto p-10 mt-10 rounded-2xl shadow-2xl'>
             <div>
-                <img className="min-h-fit w-auto rounded-2xl" ref={photoURLRef} src={user?.photoURL} alt="" />
+                <img className="min-h-fit w-auto m-auto rounded-2xl" ref={photoURLRef} src={user?.photoURL} alt="" />
             </div>
             <div>
                 <div className="form-control">
