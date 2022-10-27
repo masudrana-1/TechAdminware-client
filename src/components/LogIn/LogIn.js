@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useContext } from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from '../Context/AuthProvider';
 
 const LogIn = () => {
@@ -28,6 +30,8 @@ const LogIn = () => {
                 // console.log(user);
                 form.reset();
                 setError('');
+
+                toast.error('Successfully Login')
 
                 // user email verify 
                 // if (user.emailVerified) {

@@ -1,6 +1,8 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useState } from 'react';
 import { useContext } from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from '../Context/AuthProvider';
 
 const Register = () => {
@@ -10,7 +12,7 @@ const Register = () => {
     // for terms 
     const [accepted, setAccepted] = useState(false);
 
-    const { createUser, providerLogin, updateUserProfile, verifyEmail } = useContext(AuthContext);
+    const { createUser, googleProviderLogin, updateUserProfile, verifyEmail } = useContext(AuthContext);
 
     const handleRegister = event => {
         event.preventDefault();
@@ -35,7 +37,7 @@ const Register = () => {
                 handleEmailVerification();
 
                 // for toast 
-                // toast.success('Please verify your email before login!!!')
+                toast.success('Successfully Register')
             })
             .catch(error => {
                 console.error(error);
@@ -46,7 +48,7 @@ const Register = () => {
     const googleProvider = new GoogleAuthProvider();
 
     const handleGoogleSignIn = () => {
-        providerLogin(googleProvider)
+        googleProviderLogin(googleProvider)
             .then(result => {
                 const user = result.user;
                 console.log(user);
@@ -79,7 +81,7 @@ const Register = () => {
 
     return (
         <div>
-            <form onSubmit={handleRegister} className='shadow-2xl w-2/4 m-auto mt-20 p-6'>
+            <form onSubmit={handleRegister} className='shadow-2xl w-2/4 m-auto mt-10 p-6'>
                 <h1 className='text-3xl'>Register</h1>
                 <div className='mt-4'>
                     <p className=''>Name</p>
@@ -103,6 +105,8 @@ const Register = () => {
                 <button className='btn mt-2'>Register</button>
                 <br />
                 <button onClick={handleGoogleSignIn} className='btn mt-2'>SignIn with Google</button>
+                <br />
+                <button className='btn mt-2'>SignIn with Github</button>
             </form>
         </div>
     );
