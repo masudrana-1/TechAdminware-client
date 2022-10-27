@@ -1,6 +1,7 @@
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useState } from 'react';
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from '../Context/AuthProvider';
@@ -94,8 +95,8 @@ const Register = () => {
 
     return (
         <div>
-            <form onSubmit={handleRegister} className='shadow-2xl w-2/4 m-auto mt-10 p-6'>
-                <h1 className='text-3xl'>Register</h1>
+            <form onSubmit={handleRegister} className='shadow-2xl w-2/4 m-auto mt-2 p-6 text-center'>
+                <h1 className='text-5xl text-success text-center'>REGISTER</h1>
                 <div className='mt-4'>
                     <p className=''>Name</p>
                     <input type="text" name='name' placeholder="Your Name" className="input input-bordered input-success w-full max-w-xs" />
@@ -112,8 +113,11 @@ const Register = () => {
                     <p>Password</p>
                     <input type="password" name='password' placeholder="Password" className="input input-bordered input-success w-full max-w-xs" required />
                 </div>
-                <div className='mt-3'>
+                <div className='mt-3 text-red-600'>
                     {error}
+                </div>
+                <div>
+                    <span>You have an accout. <Link className='text-teal-500' to='/login'>Please Login</Link></span>
                 </div>
                 <button className='btn mt-2'>Register</button>
                 <br />

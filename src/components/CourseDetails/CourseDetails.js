@@ -1,4 +1,5 @@
 import React from 'react';
+import { BsFileEarmarkPdfFill } from "react-icons/bs";
 import { Link, useLoaderData } from 'react-router-dom';
 
 const CourseDetails = () => {
@@ -20,7 +21,9 @@ const CourseDetails = () => {
                     </h2>
                     <p>{details}</p>
                     <div className="card-actions justify-end">
+                        <Link to='/courses' className="btn">Show all course</Link>
                         <Link to='/checkout' className="btn">Purchase this course</Link>
+                        <button className="btn">Download pdf <BsFileEarmarkPdfFill></BsFileEarmarkPdfFill></button>
                     </div>
                 </div>
             </div>

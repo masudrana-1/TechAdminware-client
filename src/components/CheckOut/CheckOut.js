@@ -1,15 +1,18 @@
 import React from 'react';
 import { useContext } from 'react';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../Context/AuthProvider';
 
 const CheckOut = () => {
 
     const { user } = useContext(AuthContext);
 
-    const { displayName, uid, email } = user;
+    // const { displayName, uid, email } = user;
 
     const handlePurchase = event => {
         event.preventDefault();
+
+        toast.success('Successfully purchase.')
     }
 
     return (
@@ -19,19 +22,19 @@ const CheckOut = () => {
                 <div className="form-control mt-6">
                     <label className="input-group">
                         <span>ID</span>
-                        <input type="text" defaultValue={uid} placeholder="Your ID" className="input input-bordered w-full" />
+                        <input type="text" defaultValue={user?.uid} placeholder="Your ID" className="input input-bordered w-full" />
                     </label>
                 </div>
                 <div className="form-control mt-3">
                     <label className="input-group">
                         <span>Name</span>
-                        <input type="text" defaultValue={displayName} placeholder="Your Name" className="input input-bordered w-full" required />
+                        <input type="text" defaultValue={user?.displayName} placeholder="Your Name" className="input input-bordered w-full" required />
                     </label>
                 </div>
                 <div className="form-control mt-3">
                     <label className="input-group">
                         <span>Email</span>
-                        <input type="Email" defaultValue={email} placeholder="info@site.com" className="input input-bordered w-full" required />
+                        <input type="Email" defaultValue={user?.email} placeholder="info@site.com" className="input input-bordered w-full" required />
                     </label>
                 </div>
                 <button className='btn mt-4'>Confirm to Purchase</button>

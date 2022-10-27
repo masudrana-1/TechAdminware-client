@@ -10,7 +10,7 @@ const CourseLink = ({ course }) => {
 
     return (
         <div>
-            <Link to={`/course/${_id}`} className="btn btn-outline btn-accent mb-6">{title}</Link>
+            <Link to={`/course/${_id}`} className="btn btn-outline btn-accent mb-6 w-full">{title}</Link>
         </div>
     );
 };

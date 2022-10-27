@@ -10,6 +10,7 @@ import Courses from './components/Courses/Courses';
 import ErrorPage from './components/ErrorPage/ErrorPage';
 import FAQ from './components/FAQ/FAQ';
 import LogIn from './components/LogIn/LogIn';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Profile from './components/Profile/Profile';
 import Register from './components/Register/Register';
 import Main from './layout/Main';
@@ -22,6 +23,13 @@ function App() {
       errorElement: <ErrorPage></ErrorPage>,
       element: <Main></Main>,
       children: [
+        {
+          path: '/',
+          loader: () => {
+            return fetch('http://localhost:5000/course')
+          },
+          element: <Courses></Courses>
+        },
         {
           path: '/courses',
           loader: () => {
@@ -64,14 +72,14 @@ function App() {
         },
         {
           path: '/checkout',
-          element: <CheckOut></CheckOut>
+          element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>
         }
       ]
     }
   ])
 
   return (
-    <div className="App">
+    <div>
       <RouterProvider router={router}></RouterProvider>
       <ToastContainer></ToastContainer>
     </div>

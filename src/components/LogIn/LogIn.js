@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from '../Context/AuthProvider';
@@ -31,7 +32,7 @@ const LogIn = () => {
                 form.reset();
                 setError('');
 
-                toast.error('Successfully Login')
+                toast.success('Successfully Login')
 
                 // user email verify 
                 // if (user.emailVerified) {
@@ -52,18 +53,21 @@ const LogIn = () => {
 
     return (
         <div>
-            <form onSubmit={handleLogIn} className='shadow-2xl w-2/4 m-auto mt-20 p-6'>
-                <h1 className='text-3xl'>Log In</h1>
+            <form onSubmit={handleLogIn} className='shadow-2xl w-2/4 m-auto mt-20 p-6 text-center'>
+                <h1 className='text-5xl text-success'>LOG-IN</h1>
                 <div className='mt-4'>
-                    <p className='text-left'>Email</p>
+                    <p className=''>Email</p>
                     <input type="text" name='email' placeholder="Your email" className="input input-bordered input-success w-full max-w-xs" required />
                 </div>
                 <div className='mt-3'>
                     <p>Password</p>
                     <input type="password" name='password' placeholder="Password" className="input input-bordered input-success w-full max-w-xs" required />
                 </div>
-                <div className='mt-3'>
+                <div className='mt-3 text-red-600'>
                     {error}
+                </div>
+                <div>
+                    <span>You don't have an accout? <Link className='text-emerald-500' to='/register'>Please Register</Link></span>
                 </div>
                 <button className='btn mt-2'>LogIn</button>
             </form>

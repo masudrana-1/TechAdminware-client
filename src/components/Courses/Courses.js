@@ -11,12 +11,12 @@ const Courses = () => {
 
     return (
         <div className='flex gap-5'>
-            <div className=''>
+            <div className='px-6 py-3'>
                 {
                     courses.map(course => <CourseLink key={course.id} course={course}></CourseLink>)
                 }
             </div>
-            <div className='grid grid-cols-2 m-auto gap-8'>
+            <div className='grid grid-cols-2 m-auto gap-8 px-6'>
 
                 {
                     courses.map(course => <Course key={course.id} course={course}></Course>)
