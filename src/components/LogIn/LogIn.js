@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from '../Context/AuthProvider';
@@ -9,14 +10,14 @@ const LogIn = () => {
 
     const [error, setError] = useState('');
 
-    const { signIn, setLoading } = useContext(AuthContext);
+    const { user, signIn, setLoading } = useContext(AuthContext);
 
     // redirect 
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
 
-    // const location = useLocation();
+    const location = useLocation();
 
-    // const from = location.state?.from?.pathname || '/';
+    const from = location.state?.from?.pathname || '/';
 
     const handleLogIn = (event) => {
         event.preventDefault();
@@ -34,9 +35,9 @@ const LogIn = () => {
 
                 toast.success('Successfully Login')
 
+                navigate(from, { replace: true });
                 // user email verify 
                 // if (user.emailVerified) {
-                //     navigate(from, { replace: true });
                 // }
                 // else {
                 //     toast.error('Your email is not verified. Please verify your email.')
@@ -50,6 +51,12 @@ const LogIn = () => {
                 setLoading(false);
             })
     }
+
+    useEffect(() => {
+        if (user?.email) {
+            navigate(from, { replace: true });
+        }
+    }, [user])
 
     return (
         <div>

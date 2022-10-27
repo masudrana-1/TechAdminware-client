@@ -6,7 +6,7 @@ const CourseDetails = () => {
 
     const course = useLoaderData();
 
-    const { title, img, details } = course;
+    const { _id, title, img, details } = course;
 
     console.log(course)
 
@@ -23,7 +23,7 @@ const CourseDetails = () => {
                     <div className="card-actions justify-end">
                         <Link to='/courses' className="btn">Show all course</Link>
                         <Link to='/checkout' className="btn">Purchase this course</Link>
-                        <button className="btn">Download pdf <BsFileEarmarkPdfFill></BsFileEarmarkPdfFill></button>
+                        <Link to={`/course/${_id}/pdf`} className="btn">Download pdf <BsFileEarmarkPdfFill></BsFileEarmarkPdfFill></Link>
                     </div>
                 </div>
             </div>

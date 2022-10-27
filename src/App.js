@@ -12,6 +12,7 @@ import FAQ from './components/FAQ/FAQ';
 import LogIn from './components/LogIn/LogIn';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Profile from './components/Profile/Profile';
+import ReactPdf from './components/ReactPdf/ReactPdf';
 import Register from './components/Register/Register';
 import Main from './layout/Main';
 
@@ -73,6 +74,11 @@ function App() {
         {
           path: '/checkout',
           element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>
+        },
+        {
+          path: '/course/:id/pdf',
+          loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`),
+          element: <ReactPdf></ReactPdf>
         }
       ]
     }
