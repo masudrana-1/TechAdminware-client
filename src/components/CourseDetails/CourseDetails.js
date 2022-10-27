@@ -11,8 +11,8 @@ const CourseDetails = () => {
 
     return (
         <div>
-            <div className="card bg-base-100 shadow-xl w-3/4 m-auto">
-                <figure><img src={img} alt="Shoes" /></figure>
+            <div className="card bg-base-100 shadow-xl w-7/12 m-auto">
+                <figure><img src={img} alt="" className='w-full' /></figure>
                 <div className="card-body">
                     <h2 className="card-title">
                         {title}
