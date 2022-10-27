@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const CourseDetails = () => {
 
@@ -11,7 +11,7 @@ const CourseDetails = () => {
 
     return (
         <div>
-            <div className="card bg-base-100 shadow-xl">
+            <div className="card bg-base-100 shadow-xl w-3/4 m-auto">
                 <figure><img src={img} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">
@@ -20,8 +20,7 @@ const CourseDetails = () => {
                     </h2>
                     <p>{details}</p>
                     <div className="card-actions justify-end">
-                        <div className="badge badge-outline">Fashion</div>
-                        <div className="badge badge-outline">Products</div>
+                        <Link to='/checkout' className="btn">Purchase this course</Link>
                     </div>
                 </div>
             </div>

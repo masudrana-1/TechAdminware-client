@@ -1,4 +1,4 @@
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useState } from 'react';
 import { useContext } from 'react';
 import { toast } from 'react-toastify';
@@ -12,7 +12,7 @@ const Register = () => {
     // for terms 
     const [accepted, setAccepted] = useState(false);
 
-    const { createUser, googleProviderLogin, updateUserProfile, verifyEmail } = useContext(AuthContext);
+    const { createUser, googleProviderLogin, githubProviderLogin, updateUserProfile, verifyEmail } = useContext(AuthContext);
 
     const handleRegister = event => {
         event.preventDefault();
@@ -45,6 +45,7 @@ const Register = () => {
             })
     }
 
+    // google auth
     const googleProvider = new GoogleAuthProvider();
 
     const handleGoogleSignIn = () => {
@@ -54,6 +55,18 @@ const Register = () => {
                 console.log(user);
             })
             .catch(error => console.error('error', error))
+    }
+
+    // github auth 
+    const githubProvider = new GithubAuthProvider();
+
+    const handleGithubSignIn = () => {
+        githubProviderLogin(githubProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => console.error(error))
     }
 
     // profile update 
@@ -106,7 +119,7 @@ const Register = () => {
                 <br />
                 <button onClick={handleGoogleSignIn} className='btn mt-2'>SignIn with Google</button>
                 <br />
-                <button className='btn mt-2'>SignIn with Github</button>
+                <button onClick={handleGithubSignIn} className='btn mt-2'>SignIn with Github</button>
             </form>
         </div>
     );

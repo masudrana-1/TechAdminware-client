@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import './App.css';
 import Blogs from './components/Blogs/Blogs';
+import CheckOut from './components/CheckOut/CheckOut';
 import Course from './components/Course/Course';
 import CourseDetails from './components/CourseDetails/CourseDetails';
 import CourseLink from './components/CourseLink/CourseLink';
@@ -9,6 +10,7 @@ import Courses from './components/Courses/Courses';
 import ErrorPage from './components/ErrorPage/ErrorPage';
 import FAQ from './components/FAQ/FAQ';
 import LogIn from './components/LogIn/LogIn';
+import Profile from './components/Profile/Profile';
 import Register from './components/Register/Register';
 import Main from './layout/Main';
 
@@ -55,6 +57,14 @@ function App() {
         {
           path: '/register',
           element: <Register></Register>
+        },
+        {
+          path: '/profile',
+          element: <Profile></Profile>
+        },
+        {
+          path: '/checkout',
+          element: <CheckOut></CheckOut>
         }
       ]
     }
