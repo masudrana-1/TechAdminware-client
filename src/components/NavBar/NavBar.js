@@ -29,7 +29,7 @@ const NavBar = () => {
                             <li><Link to='/faq'>FAQ</Link></li>
                         </ul>
                     </div>
-                    <Link to='/' className="btn btn-ghost normal-case text-xl">TechAdminware</Link>
+                    <Link to='/' className="btn btn-ghost normal-case text-teal-400 text-2xl">TechAdminware</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
@@ -47,7 +47,9 @@ const NavBar = () => {
                         {
                             user?.uid ?
                                 <>
-                                    <Link to='/profile'><img src={user.photoURL} className="h-12 w-12 mr-2 rounded-full" alt="" /></Link>
+                                    <div className="tooltip tooltip-left" data-tip={user?.displayName}>
+                                        <Link to='/profile'><img src={user.photoURL} className="h-12 w-12 mr-2 rounded-full" alt="" /></Link>
+                                    </div>
                                     <button onClick={handleLogOut} className='btn mr-2'>LogOut</button>
                                 </>
                                 :
@@ -63,7 +65,7 @@ const NavBar = () => {
                     <Link className='btn mr-2' to='/register'>Register</Link>
                     <Link className='btn mr-2' >LogOut</Link> */}
                     <div>
-                        <label className="swap swap-rotate">
+                        <label className="swap swap-rotate ">
 
                             {/* <!-- this hidden checkbox controls the state --> */}
                             <input type="checkbox" />

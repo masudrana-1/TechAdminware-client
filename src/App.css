@@ -32,7 +32,25 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
+
+
+/* :root {
+  --my-color: #fff;
+}
+
+[data-theme='dark'] {
+  --my-color: #000;
+}
+
+[data-theme='pink'] {
+  --my-color: #ffabc8;
+}
+
+body {
+  background-color: var(--my-color);
+} */
