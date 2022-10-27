@@ -27,14 +27,14 @@ function App() {
         {
           path: '/',
           loader: () => {
-            return fetch('http://localhost:5000/course')
+            return fetch('https://techadminware-server-assignment.vercel.app/course')
           },
           element: <Courses></Courses>
         },
         {
           path: '/courses',
           loader: () => {
-            return fetch('http://localhost:5000/course')
+            return fetch('https://techadminware-server-assignment.vercel.app/course')
           },
           element: <Courses></Courses>
         },
@@ -48,7 +48,7 @@ function App() {
         },
         {
           path: '/course/:id',
-          loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`),
+          loader: ({ params }) => fetch(`https://techadminware-server-assignment.vercel.app/course/${params.id}`),
           element: <CourseDetails></CourseDetails>
         },
         {
@@ -77,7 +77,7 @@ function App() {
         },
         {
           path: '/course/:id/pdf',
-          loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`),
+          loader: ({ params }) => fetch(`https://techadminware-server-assignment.vercel.app/course/${params.id}`),
           element: <ReactPdf></ReactPdf>
         }
       ]
