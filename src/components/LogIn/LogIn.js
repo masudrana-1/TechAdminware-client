@@ -60,7 +60,7 @@ const LogIn = () => {
 
     return (
         <div>
-            <form onSubmit={handleLogIn} className='lg:shadow-2xl lg:w-2/4 lg:m-auto mt-20 p-6 text-center'>
+            <form onSubmit={handleLogIn} className='w-44 lg:w-2/4 lg:m-auto mt-20 lg:mt-40 p-6 text-center'>
                 <h1 className='text-5xl text-success'>LOG-IN</h1>
                 <div className='mt-4'>
                     <p className=''>Email</p>
@@ -76,7 +76,7 @@ const LogIn = () => {
                 <div>
                     <span>You don't have an accout? <Link className='text-emerald-500' to='/register'>Please Register</Link></span>
                 </div>
-                <button className='btn mt-2'>LogIn</button>
+                <button className='btn mt-6 shadow-md shadow-red-500/50 w-44'>LogIn</button>
             </form>
         </div>
     );

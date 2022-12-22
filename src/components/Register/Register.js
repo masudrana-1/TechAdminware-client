@@ -119,11 +119,11 @@ const Register = () => {
                 <div>
                     <span>You have an accout. <Link className='text-teal-500' to='/login'>Please Login</Link></span>
                 </div>
-                <button className='btn mt-2'>Register</button>
+                <button className='btn mt-2 shadow-md shadow-red-500/50 w-44'>Register</button>
                 <br />
-                <button onClick={handleGoogleSignIn} className='btn mt-2'>SignIn with Google</button>
+                <button onClick={handleGoogleSignIn} className='btn mt-2 shadow-md shadow-cyan-500/50 w-44'>SignIn with Google</button>
                 <br />
-                <button onClick={handleGithubSignIn} className='btn mt-2'>SignIn with Github</button>
+                <button onClick={handleGithubSignIn} className='btn mt-2 shadow-md shadow-blue-500/50 w-44'>SignIn with Github</button>
             </form>
         </div>
     );

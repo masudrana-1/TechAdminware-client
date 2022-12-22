@@ -12,7 +12,7 @@ const CourseDetails = () => {
 
     return (
         <div>
-            <div className="card bg-base-100 shadow-xl lg:w-7/12 mx-6 lg:m-auto">
+            <div className="card bg-base-100 lg:w-7/12 mx-6 lg:m-auto">
                 <figure><img src={img} alt="" className='w-full' /></figure>
                 <div className="card-body">
                     <h2 className="card-title">
@@ -21,9 +21,9 @@ const CourseDetails = () => {
                     </h2>
                     <p>{details}</p>
                     <div className="card-actions justify-end">
-                        <Link to='/courses' className="btn">Show all course</Link>
-                        <Link to='/checkout' className="btn">Purchase this course</Link>
-                        <Link to={`/course/${_id}/pdf`} className="btn">Download pdf <BsFileEarmarkPdfFill></BsFileEarmarkPdfFill></Link>
+                        <Link to='/courses' className="btn bg-orange-800 shadow-lg shadow-blue-500/50">Show all course</Link>
+                        <Link to='/checkout' className="btn bg-blue-800 shadow-lg shadow-red-500/50">Purchase this course</Link>
+                        <Link to={`/course/${_id}/pdf`} className="btn bg-red-800 shadow-lg shadow-blue-500/50">Download pdf <BsFileEarmarkPdfFill></BsFileEarmarkPdfFill></Link>
                     </div>
                 </div>
             </div>

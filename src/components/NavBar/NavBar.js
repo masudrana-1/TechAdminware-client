@@ -50,12 +50,12 @@ const NavBar = () => {
                                     <div className="tooltip tooltip-left" data-tip={user?.displayName}>
                                         <Link to='/profile'><img src={user.photoURL} className="h-12 w-12 mr-2 rounded-full" alt="" /></Link>
                                     </div>
-                                    <button onClick={handleLogOut} className='btn mr-2'>LogOut</button>
+                                    <button onClick={handleLogOut} className='btn mr-2 shadow-md shadow-red-500/50 w-44'>LogOut</button>
                                 </>
                                 :
                                 <>
-                                    <Link to='/login' className='btn mr-2'>LogIn</Link>
-                                    <Link to='/register' className='btn mr-2'>Register</Link>
+                                    <Link to='/login' className='btn mr-2 shadow-md shadow-red-500/50 '>LogIn</Link>
+                                    <Link to='/register' className='btn mr-2 shadow-md shadow-red-500/50 '>Register</Link>
                                 </>
                         }
                     </>
